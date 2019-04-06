@@ -13,7 +13,8 @@ class NewSubjectState extends State<NewSubject>{
 
   final textController = TextEditingController();
 
-  TodoProvider todo = TodoProvider();
+  TodoProvider provider = TodoProvider();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +38,15 @@ class NewSubjectState extends State<NewSubject>{
             ),
             RaisedButton(
               child: Text("Save"),
-              onPressed: (){
-                _formKey.currentState.validate();
+              onPressed: () async {
+                if(_formKey.currentState.validate()){
+                  await provider.open("todo.db");
+                  Todo todo = Todo();
+                  todo.title = textController.text;
+                  todo.done = false;
+                  await provider.insert(todo);
+                  Navigator.pop(context);
+                }
               },
             )
           ],
