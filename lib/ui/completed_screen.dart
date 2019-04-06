@@ -40,7 +40,12 @@ class CompletedState extends State<Completed>{
         ],
       ),
       body: Center(
-        child: count == 0? Text("No data found.."):
+        child: count == 0? Text(
+          "No data found..",
+          style: TextStyle(
+            fontSize: 18.0
+          ),
+          ):
         ListView.builder(
           itemCount: todoes.length,
           padding: const EdgeInsets.all(15.0),

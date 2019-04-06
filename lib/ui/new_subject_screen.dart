@@ -33,7 +33,8 @@ class NewSubjectState extends State<NewSubject>{
                 }
               },
               decoration: InputDecoration(
-                labelText: "Subject"
+                labelText: "Subject",
+                contentPadding: const EdgeInsets.all(15)
               ),
             ),
             RaisedButton(
