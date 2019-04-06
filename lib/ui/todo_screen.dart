@@ -22,6 +22,7 @@ class TodoScreenState extends State<TodoScreen>{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
